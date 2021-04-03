@@ -90,7 +90,7 @@ def main(data:str=''):
         print('\nN LOCALIZADAS:', len(textos_selecionados))
         escreve_txt(textos_selecionados)
     else:
-        print('\nNENHUMA LOCALIZADO!')
+        print('\nNENHUMA LOCALIZADA!')
         
     
             
