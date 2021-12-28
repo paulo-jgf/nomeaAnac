@@ -15,12 +15,20 @@ from datetime import datetime
 # Formato data 'dd-mm-aaaa' ; 
 def main(data:str=''):
     
+    header_req = {
+    'Accept' : '*/*',
+    'DNT': '1',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36',
+    'X-Requested-With':'XMLHttpRequest'
+    }
+    
     def pega_fonte(data:str='', secao:str='2'):
         
         if not data: data = datetime.now().strftime("%d-%m-%Y")
         
         res = requests.get('https://www.in.gov.br/leiturajornal?data={}&secao=do{}#daypicker'.format(
-        data, secao) )
+        data, secao),
+        headers=header_req)
     
         res.raise_for_status()
     
@@ -94,23 +102,4 @@ def main(data:str=''):
         
     
             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
